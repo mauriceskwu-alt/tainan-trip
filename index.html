@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f2e9">
+  <title>台南非去不可的行程｜小資兩天一夜</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #26332f;
+      --muted: #68766f;
+      --paper: #f7f2e9;
+      --card: #fffdf8;
+      --green: #49675a;
+      --gold: #c28b4e;
+      --line: #e8e0d3;
+    }
+    * { box-sizing: border-box; }
+    html { background: var(--paper); }
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+      font-size: 17px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    .page { width: min(100% - 32px, 680px); margin: 0 auto; padding: 38px 0 52px; }
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 32px 25px 29px;
+      border-radius: 24px;
+      color: #fffdf8;
+      background: linear-gradient(140deg, #405f52, #66816d);
+      box-shadow: 0 12px 28px #405f5226;
+    }
+    .hero::after {
+      content: "南";
+      position: absolute;
+      right: -3px;
+      bottom: -74px;
+      color: #ffffff12;
+      font-family: serif;
+      font-size: 220px;
+      line-height: 1;
+      pointer-events: none;
+    }
+    .eyebrow { margin: 0 0 7px; color: #e6d3ad; font-size: 13px; font-weight: 700; letter-spacing: .16em; }
+    h1 { position: relative; z-index: 1; margin: 0; font-size: clamp(32px, 9vw, 43px); line-height: 1.2; letter-spacing: .04em; }
+    .intro { position: relative; z-index: 1; margin: 12px 0 0; color: #f5f1e8; font-size: 16px; }
+    .recommendation {
+      margin: 18px 0 0;
+      padding: 19px 20px;
+      border: 1px solid #edd8b8;
+      border-radius: 19px;
+      background: linear-gradient(135deg, #fff8e9, #fffdf8);
+      box-shadow: 0 6px 18px #6d50200d;
+    }
+    .recommendation-label { margin: 0 0 5px; color: #9a642f; font-size: 13px; font-weight: 800; letter-spacing: .08em; }
+    .recommendation h2 { margin: 0; color: #453927; font-size: 20px; line-height: 1.45; }
+    .recommendation p { margin: 6px 0 0; color: #6d6252; font-size: 15px; line-height: 1.65; }
+    .note { margin: 15px 2px 25px; color: var(--muted); font-size: 14px; }
+    .day { margin-top: 27px; }
+    .day-heading { display: flex; align-items: baseline; gap: 10px; margin: 0 2px 13px; }
+    .day-heading h2 { margin: 0; font-size: 23px; letter-spacing: .03em; }
+    .day-heading span { color: var(--muted); font-size: 14px; }
+    .stops { display: grid; gap: 12px; }
+    .timeline-stops { display: grid; row-gap: 12px; }
+    .timeline-item { display: grid; grid-template-columns: 24px 1fr; column-gap: 10px; }
+    .timeline-marker { position: relative; }
+    .timeline-marker::before {
+      content: "";
+      position: absolute;
+      z-index: 1;
+      top: 21px;
+      left: 6px;
+      width: 10px;
+      height: 10px;
+      border: 3px solid var(--paper);
+      border-radius: 50%;
+      background: var(--gold);
+      box-shadow: 0 0 0 2px var(--gold);
+    }
+    .timeline-marker::after {
+      content: "";
+      position: absolute;
+      top: 31px;
+      bottom: -38px;
+      left: 10px;
+      width: 2px;
+      background: #d9c5a8;
+    }
+    .timeline-item:last-child .timeline-marker::after { display: none; }
+    .stop {
+      display: grid;
+      grid-template-columns: 64px 1fr;
+      gap: 13px;
+      padding: 17px 17px 16px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: var(--card);
+      box-shadow: 0 3px 12px #40342008;
+    }
+    .time { padding-top: 2px; color: var(--green); font-size: 15px; font-weight: 750; font-variant-numeric: tabular-nums; }
+    .place { margin: 0; font-size: 18px; font-weight: 750; line-height: 1.45; }
+    .description { margin: 5px 0 0; color: var(--muted); font-size: 15px; line-height: 1.6; }
+    .footer { margin: 28px 4px 0; color: var(--muted); font-size: 14px; text-align: center; }
+    @media (min-width: 600px) {
+      .page { padding-top: 54px; }
+      .hero { padding: 38px 36px 34px; }
+      .stop { grid-template-columns: 76px 1fr; padding: 19px 21px; }
+    }
+    @media (prefers-reduced-motion: no-preference) {
+      .stop { animation: arrive .45s both; }
+      .stop:nth-child(2) { animation-delay: .06s; }
+      .stop:nth-child(3) { animation-delay: .12s; }
+      .stop:nth-child(4) { animation-delay: .18s; }
+      .timeline-item:nth-child(2) .stop { animation-delay: .06s; }
+      .timeline-item:nth-child(3) .stop { animation-delay: .12s; }
+      .timeline-item:nth-child(4) .stop { animation-delay: .18s; }
+      @keyframes arrive { from { opacity: 0; transform: translateY(7px); } to { opacity: 1; transform: translateY(0); } }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="hero">
+      <p class="eyebrow">TA I N A N · WEEKEND TRIP</p>
+      <h1>台南非去不可的行程</h1>
+      <p class="intro">小資也能玩得很滿，和朋友一起收下府城的可愛日常。</p>
+    </header>
+    <aside class="recommendation" aria-labelledby="recommendation-title">
+      <p class="recommendation-label">✨ 好玩推薦 · 小資必收</p>
+      <h2 id="recommendation-title">白天鑽巷弄找美食，傍晚追夕陽吹海風！</h2>
+      <p>古蹟散步、小吃分著吃、海邊看夕陽，兩天把台南最有趣的節奏一次玩到，花費也能自己掌握。</p>
+    </aside>
+    <p class="note">行程中的店名與時間目前為示意，出發前再一起確認更新。</p>
+
+    <section class="day timeline-day" aria-labelledby="day-one">
+      <div class="day-heading"><h2 id="day-one">第一天</h2><span>古城散步・夜色小吃</span></div>
+      <div class="timeline-stops">
+        <div class="timeline-item">
+          <span class="timeline-marker" aria-hidden="true"></span>
+          <article class="stop">
+            <time class="time" datetime="10:00">10:00</time>
+            <div><h3 class="place">示意早餐店｜米糕控的口袋名單</h3><p class="description">先用一碗在地米糕開啟旅程，吃飽再慢慢逛老城區。</p></div>
+          </article>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-marker" aria-hidden="true"></span>
+          <article class="stop">
+            <time class="time" datetime="11:30">11:30</time>
+            <div><h3 class="place">赤崁樓周邊</h3><p class="description">走訪古蹟與巷弄，感受台南老屋和街道的日常風景。</p></div>
+          </article>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-marker" aria-hidden="true"></span>
+          <article class="stop">
+            <time class="time" datetime="15:00">15:00</time>
+            <div><h3 class="place">示意甜點店｜散步布丁</h3><p class="description">找間喜歡的小店歇歇腳，補充甜點和咖啡的能量。</p></div>
+          </article>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-marker" aria-hidden="true"></span>
+          <article class="stop">
+            <time class="time" datetime="18:30">18:30</time>
+            <div><h3 class="place">國華街示意晚餐｜府城小吃</h3><p class="description">挑幾樣想吃的小吃分享，留點胃給沿路遇見的好味道。</p></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="day timeline-day" aria-labelledby="day-two">
+      <div class="day-heading"><h2 id="day-two">第二天</h2><span>巷弄早晨・海邊收尾</span></div>
+      <div class="timeline-stops">
+        <div class="timeline-item">
+          <span class="timeline-marker" aria-hidden="true"></span>
+          <article class="stop">
+            <time class="time" datetime="09:00">09:00</time>
+            <div><h3 class="place">示意早餐店｜慢慢吃早餐</h3><p class="description">睡飽再出門，坐下來享用一頓悠閒的台南早午餐。</p></div>
+          </article>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-marker" aria-hidden="true"></span>
+          <article class="stop">
+            <time class="time" datetime="11:00">11:00</time>
+            <div><h3 class="place">神農街散步</h3><p class="description">穿梭巷弄看看老街屋、選物小店，順手拍幾張旅行合照。</p></div>
+          </article>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-marker" aria-hidden="true"></span>
+          <article class="stop">
+            <time class="time" datetime="14:00">14:00</time>
+            <div><h3 class="place">安平樹屋・安平老街</h3><p class="description">看看樹根與老屋交織的景色，再到老街挑份伴手禮。</p></div>
+          </article>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-marker" aria-hidden="true"></span>
+          <article class="stop">
+            <time class="time" datetime="16:30">16:30</time>
+            <div><h3 class="place">漁光島海邊</h3><p class="description">在海風裡散步看夕陽，為兩天一夜的小旅行畫下句點。</p></div>
+          </article>
+        </div>
+      </div>
+    </section>
+    <section class="day" aria-labelledby="reminders">
+      <div class="day-heading"><h2 id="reminders">行前提醒</h2><span>出發前記得確認</span></div>
+      <div class="stops">
+        <article class="stop">
+          <span class="time">天氣</span>
+          <div><p class="place">示意：晴時多雲，午後可能有短暫陣雨</p></div>
+        </article>
+        <article class="stop">
+          <span class="time">要帶的東西</span>
+          <div><p class="place">示意：雨傘、水壺、行動電源、防曬用品</p></div>
+        </article>
+        <article class="stop">
+          <span class="time">集合時間</span>
+          <div><p class="place">示意：第一天上午 10:00 集合</p></div>
+        </article>
+      </div>
+    </section>
+    <p class="footer">府城的好風景，留給下次再訪。</p>
+  </main>
+</body>
+</html>
